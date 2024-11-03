@@ -1,31 +1,21 @@
-# Blog
+# EasyBlog
 
 > 一个基于Django开发的blog系统
 
 ## 技术栈
 
-### 前端
+前端:HTML JavaScript CSS Bootstrap Jquery
 
-HTML JavaScript CSS Bootstrap Jquery
+后端:Django
 
-### 后端
-
-Django
-
-### 数据库
-
-SQLite
+数据库:SQLite
 
 ## WebUI
 
 ### 主页面
 
-url: /
+![](img/fontpage.png)
 
-![](/PixPin_2024-11-03_15-28-37.png)
+### 管理界面
 
-### 管理页面
-
-url: /admin
-
-![](/PixPin_2024-11-03_15-28-51.png)
+![](img/adminpage.png)
