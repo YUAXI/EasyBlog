@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+li{
+    list-style: none;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+body {
+    user-select: none;
+}
+.nav-link:hover{
+    opacity: 0.8;
+}
+.row{
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+}
+.navbar-toggler-icon{
+    background-image: none;
+}
+.navbar-toggler-icon:hover{
+    opacity: 0.8;
+}
+.navbar-toggler{
+    line-height:1;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+.btn-outline-success{
+    outline: none;
+    border: none;
+}
+.search-bt{
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+.search-bt:active{
+    font-size: 5px;
+}
+.form-control::placeholder{
+    color: rgb(255, 255, 255);
+}
+.collapsed{
+    outline: none;
+    border: none;
+}
+.navbar-toggler:focus{
+ box-shadow: none;
+}
+.fa-angle-down:hover{
+    opacity: 0.8;
+}
+.active{
+    font-weight: bolder;
+}
+.btn-outline-success:hover{
+    background-color: transparent;
+}
+a {
+    text-decoration: none;
+}
+
+.server {
+    transition-duration: .25s, 1s;
+}
+
+.server_active {
+    transform: scale(1.1);
+}
+
+.server_name {
+    transition-duration: .25s, 1s;
+}
+
+.server_name_active {
+    opacity: 0;
+}
+
+.contact {
+    color: #ffffff;
+    transition-duration: .25s, 1s;
+}
+
+.fa-weixin:hover {
+    color: #00d518;
+    transform: scale(0.8);
+}
+
+.fa-youtube:hover {
+    color: #ff0000;
+    transform: scale(0.8);
+}
+.fa-github:hover {
+    color: #000000;
+    transform: scale(0.8);
+}
+.shadow_active {
+    filter: drop-shadow(4px 5px 1px rgba(0, 0, 0, 0.9))
+}
+
+.shrink {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(55, 55, 55, 0.69);
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bolder;
+    overflow: hidden;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer
+}
+
+.shrink_active {
+    color: #000000;
+    background-color: rgba(246,8,8,0.82);
+}

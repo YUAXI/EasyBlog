@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YUAXI的小屋</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.3-dist/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/2bccf8da89.js" crossorigin="anonymous"></script>
+    <style>
+        body::-webkit-scrollbar{
+    display: none;
+}
+    </style>
+</head>
+<body style="background-image: url('{% static '' %}');background-size: cover;background-repeat: no-repeat;background-position: center;background-attachment: fixed">
+{#导航栏#}
+<nav class="navbar navbar-expand-lg " style="background-color: rgba(255,255,255,0.9);width: 100%;position: fixed;top: 0;z-index: 100;backdrop-filter: blur(80px);box-shadow: 0 25px 45px rgba(0,0,0,0.1)">
+    <div class="container">
+        <a class="navbar-brand" href="yuaxi.cn/admin/"><b style="font-family:'fangsong';">YUAXI的小屋</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><b>主页</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>笔记</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>开源项目</b></a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="搜索项目/笔记" aria-label="Search"
+                       style="font-size: 12px;border-radius: 10px;background-color: transparent;backdrop-filter: blur(10px);outline: none;border: none;box-shadow: 0 25px 45px rgba(0,0,0,0.1)">
+                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+{#微信二维码弹窗#}
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">反馈</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="display: flex;justify-content: center;align-content: center;padding: 20px">
+                <img src="{% static 'img/wechatQR.png' %}" alt="" style="width: 180px">
+            </div>
+        </div>
+    </div>
+</div>
+{#内容#}
+<div class="container" style="background-color: rgba(234,27,27,0);margin-top: 57px">
+    <div class="row" style="position: relative;top: 50px">
+        <div class="col-lg-12 bg-wall"
+             style="background-color: rgba(209,0,0,0);overflow: hidden;position: relative;">
+            <div class="container text-center"
+                 style="border-radius: 20px;position: relative;background: url('{% static 'img/wallhaven-o5r2m9.png' %}') no-repeat fixed 0 -60px;top: 0;width: 100%;z-index: 0;height: 100%;background-size: cover; ">
+                <div class="shrink"
+                     style="position: absolute;right: 0;top: 0;background-color: rgba(255,255,255,0.06);color: white;font-size: 20px;padding-left: 20px;padding-right: 20px;font-weight: bolder;overflow: hidden;border-top-right-radius: 20px;border-bottom-left-radius: 20px;cursor: pointer">
+                    ·
+                </div>
+                <div class="row">
+                    <span style="color: rgba(255,255,255,0.92);display: block;font-family:'fangsong';font-weight: bolder;margin-top: 30vh">00后一枚·网站完善中</span>
+                </div>
+                {#每天一言#}
+                <div class="row" style="background-color: rgba(234,37,37,0);margin-top: 6vh">
+                    <div class="col-sm-12">
+                        <span style="display: block; font-size: 12px;color: #ffffff;">{{ text }}</span>
+                    </div>
+                </div>
+                <div class="row" style="background-color: rgba(13,202,240,0)">
+                    <div class="col-sm-12" style="margin-top: 3vh">
+                        <button type="button" style="border: none;background-color: transparent" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                href="https://u.wechat.com/MAn2aPNKLk2cYmDH2_giIj8?s=1"><i
+                                style="opacity: 0.8;margin: 0 5px;"
+                                class="fa-brands fa-weixin contact"></i></button>
+                        <a href="https://www.youtube.com/channel/UCAKycL8Gg_ggA04UfxPAc6g"><i
+                                style="opacity: 0.8;margin: 0 5px;" class="fa-brands fa-youtube contact"></i></a>
+                        <a href="https://github.com/YUAXI?tab=projects"><i style="opacity: 0.8;margin: 0 5px;"
+                                                                           class="fa-brands fa-github contact"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span style="display: block;font-size: 10px;color: rgba(255,255,255,0.6);margin-top: 15vh">&copy;&nbsp;2024&nbsp;YUAXI</span>
+                        <span style="display: block;font-size: 10px;color: rgba(255,255,255,0.6);margin-bottom: 1vh">All Rights Reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style="background-color: rgba(9,110,225,0);margin-top: 10px">
+            <div class="container text-center" style="background-color: rgba(23,236,34,0);">
+                <span style="font-size: 20px;font-weight: 600;color: #000000;display: block;text-align: left"><i
+                        class="fa-solid fa-server"></i>&nbsp;我的服务</span>
+                <hr style="border: solid 3px #dcdcdc;border-radius: 5px;width: 100%">
+                {#服务列表#}
+                <div class="row">
+                    {% for server in servers %}
+                        <a href="{{ server.serverUrlLan }}" class="col-md-3" target="_blank"
+                           style="height:80px;width: 80px;background-color: rgba(255,255,255,0.1);backdrop-filter: blur(10px);outline: none;border: none;box-shadow: 0 25px 45px rgba(0,0,0,0.1);margin-left: 20px;margin-bottom: 20px;border-radius: 15px;padding: 20px;position: relative;display: flex;justify-content: center;align-content: center"
+                           draggable="false">
+                            <img src="/static/media/{{ server.serverImg }}" alt="" class="server" style="width: 50px"
+                                 draggable="false">
+                            <span class="server_name"
+                                  style="font-size:13px;color: #232323;font-weight:bolder;position: absolute;top: 85%;transform: translateY(-50%)">{{ server.serverName }}</span>
+                        </a>
+                    {% endfor %}
+
+                </div>
+                <span style="font-size: 20px;font-weight: 600;color: #000000;display: block;text-align: left"><i
+                        class="fa-solid fa-diagram-project"></i>&nbsp;推荐项目</span>
+                <hr style="border: solid 3px #dadada;border-radius: 5px;width: 100%">
+                {#轮播图#}
+                <div class="row">
+                    <div class="col-lg-12"
+                         style="position: relative;background-color: rgba(13,202,240,0);display: flex;justify-content: center;align-content: center;align-items: center;">
+                        <div class="container"
+                             style="background-color: rgba(98,0,246,0);position: relative;display: flex;justify-content: center;">
+                            <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-dark "
+                                 data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    {% for project in projects %}
+                                        {% if forloop.first %}
+                                            <div class="carousel-item active"
+                                                 style="overflow: hidden;border-radius: 10px;position: relative;background-color: rgba(10,255,144,0.89)">
+                                        {% else %}
+                                            <div class="carousel-item "
+                                                 style="overflow: hidden;border-radius: 10px;position: relative;background-color: rgba(236,11,123,0.84)">
+                                        {% endif %}
+                                    <a href="{{ project.projectUrl }}"><img
+                                            src="/static/media/{{ project.projectImg }}" class="d-block w-100"
+                                            alt="糟糕图片丢失了"></a>
+                                    <div class="carousel-caption d-none d-md-block" style="padding: 0">
+                                        <span style="display: block;font-size: 20px;font-weight: bolder;position: relative;background-color: rgba(13,202,240,0);width: 100%">{{ project.projectName }}</span>
+                                        <span style="display: block;font-size: 16px;position: relative;background-color: rgba(13,240,127,0);width: 100%;">{{ project.projectDetail }}</span>
+                                    </div>
+                                    </div>
+                                    {% endfor %}
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/shadow.js' %}"></script>
+<script src="{% static 'js/ios-parallax.js' %}"></script>
+<script src="{% static 'js/bg-wall.js' %}"></script>
+<script src="{% static 'js/bg-wall-animation.js' %}"></script>
+{#<script src="{% static 'js/reload-bg-wall.js' %}"></script>#}
+</html>

@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Y&X</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.3-dist/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/typeit.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sortable.css' %}">
+    <script src="https://kit.fontawesome.com/2bccf8da89.js" crossorigin="anonymous"></script>
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static 'img/bg.jpg' %}');background-size: cover;background-repeat: no-repeat;background-position: center;background-attachment: fixed;background-color:rgb(18,22,65) ">
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg "
+     style="background-color: rgba(13,39,88,0);outline: none;border: none;width: 100%;position: fixed;top: 0;z-index: 100;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+    <div class="container" style="background-color: rgba(255,0,0,0)">
+        <a class="navbar-brand" href="http://yuaxi.cn/admin/login/?next=/admin/"
+           style="font-size: 12px;color: #ffffff;">Y&X</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="font-size: 15px;color: #ffffff"><i
+                    class="fa-solid fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#new" style="font-size: 12px;color: #ffffff">最新</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="font-size: 12px;color: #ffffff">开源</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://yuaxi.cn:8888/#/" style="font-size: 12px;color: #ffffff"
+                       target="_blank">笔记</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="搜索项目|笔记" aria-label="Search"
+                       style="font-size: 10px;border-radius: 10px;background-color:rgba(255,255,255,0.1);backdrop-filter: blur(20px);outline: none;border: none;color: #ffffff;letter-spacing: 3px;">
+                <button class="search-bt" type="submit"><i class="fa-solid fa-magnifying-glass"
+                                                           style="color: rgb(255,255,255);font-size: 14px;"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- 微信弹窗 -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">反馈&建议</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="display: flex;justify-content: center;align-content: center;padding: 20px">
+                <img src="{% static 'img/wechatQR.png' %}" alt="" style="width: 180px">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 主页 -->
+<div class="container main-box"
+     style="background-color: rgba(234,27,27,0);position: relative;margin-top: 48px;height: calc(100vh - 48px)">
+    <div class="row" id="home" style="position: relative;background-color: rgba(22,234,22,0);height: 100%;">
+        <div class="col-lg-12 bg-wall"
+             style="background-color: rgba(243,6,6,0);overflow: hidden;position: relative;height: 100%;padding: 0">
+            <!-- 个性签名 -->
+            <div class="row"
+                 style="position: absolute;top: 40%;left: 50%;transform: translateY(-50%) translateX(-50%);width: 100%">
+                <span class="type-it"
+                      style="color: rgba(255,255,255,0.92);display: block;font-family:'fangsong';font-weight: bolder;background-color: rgba(255,0,0,0);text-align: center"></span>
+            </div>
+            <!-- 随机一言 -->
+            <div class="row"
+                 style="position: absolute;top: 55%;left: 50%;transform: translateX(-50%);background-color: rgba(9,243,146,0);width: 100%">
+                <div class="col-sm-12" style="background-color: rgba(255,0,0,0);">
+                    <span style="display: block; font-size: 13px;color: #ffffff;margin: 0;text-align: center;letter-spacing: 1px">{{ text }}</span>
+                </div>
+            </div>
+            <!-- 社交平台 -->
+            <div class="row"
+                 style="position: absolute; top: 70%; left: 50%; transform: translateX(-50%); background-color: rgba(255,0,0,0)">
+                <div class="col-sm-12">
+                    <button type="button" style="border: none;background-color: transparent" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            href="https://u.wechat.com/MAn2aPNKLk2cYmDH2_giIj8?s=1"><i
+                            style="opacity: 0.8;margin: 0 5px;font-size: 12px"
+                            class="fa-brands fa-weixin contact"></i></button>
+                    <a href="https://www.youtube.com/channel/UCAKycL8Gg_ggA04UfxPAc6g"><i
+                            style="opacity: 0.8;margin: 0 5px;font-size: 12px" class="fa-brands fa-youtube contact"></i></a>
+                    <a href="https://github.com/YUAXI?tab=projects"><i
+                            style="opacity: 0.8;margin: 0 5px;font-size: 12px"
+                            class="fa-brands fa-github contact"></i></a>
+                </div>
+            </div>
+            <!-- 版权信息 -->
+            <div class="row"
+                 style="position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);background-color: rgba(255,0,0,0)">
+                <div class="col-sm-12">
+                    <span style="display: block;font-size: 10px;color: rgba(255,255,255,0.8);text-align: center">&copy;&nbsp;2024&nbsp;YUAXI</span>
+                    <span style="display: block;font-size: 10px;color: rgba(255,255,255,0.8);margin-bottom: 10px;text-align: center">All Rights Reserved.</span>
+                </div>
+            </div>
+            <!-- 下拉条 -->
+            <div class="row"
+                 style="position: absolute;bottom: 70px;left: 50%;transform: translateX(-50%);background-color: rgba(255,0,0,0)">
+                <div class="col-sm-12">
+                    <a href="#new"><i class="fa-solid fa-angle-down" style="color: #ffffff"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="new"
+         style="position: relative;background-color: rgba(15,0,227,0);min-height: 100vh;padding: 50px 0">
+        <!-- 1st step -->
+        {#        <ul style="background-color: red;display: flex;">#}
+        {#            <li>#}
+        {#                <a data-sjslink="electron" style="color: white;margin-right: 20px;font-size: 16px"><i class="fa-solid fa-atom">&nbsp;&nbsp;电子</i></a>#}
+        {#            </li>#}
+        {#            <li>#}
+        {#                <a data-sjslink="script" style="color: white;margin-right: 20px"><i class="fa-solid fa-scroll">&nbsp;&nbsp;脚本</i></a>#}
+        {#            </li>#}
+        {#            <li>#}
+        {#                <a data-sjslink="front" style="color: white;margin-right: 20px"><i class="fa-solid fa-code">&nbsp;&nbsp;前端</i></a>#}
+        {#            </li>#}
+        {#        </ul>#}
+        <!-- 3st step -->
+        <div class="new" style="background-color: rgba(255,11,11,0);opacity: 0.9;padding-top: 10px;padding-bottom: 20px"><span
+                style="color: white;font-size: 20px;letter-spacing: 3px"><i class="fa-solid fa-fire"></i>&nbsp;最近更新</span>
+        </div>
+        <div id="sortable" class="sjs-default">
+            {#            {% for project in projects %}#}
+            {#                <div data-sjsel="electron" style="border-radius: 20px;overflow: hidden;background-color: rgba(13,39,88,0.22);backdrop-filter: blur(5px);"><img src="/static{{project.projectImg.url}}" style="width: 100%" alt=""><p style="text-align: center;font-size: 20px;background-color: rgba(173,255,47,0);font-weight: bolder"><a href="{{ project.projectUrl }}" style="letter-spacing: 1px">{{ project.projectName }}</a></p></div>#}
+            {#            {% endfor %}#}
+
+            {% for project in projects %}
+                    <div data-sjsel="electron"
+                         style="border-radius: 20px;overflow: hidden;background-color: rgba(255,255,255,0.1);backdrop-filter: blur(5px);padding: 20px 30px;box-shadow: 0 0 10px 1px rgba(0,0,0,0.1)">
+                    <a href="{{ project.projectUrl }}">
+                        <img src="/static{{ project.projectImg.url }}" style="width: 60%;display: block;margin: 0 auto;"
+                             alt="">
+                        <span style="text-align: center;font-size: 18px;color: #ffffff;display: block;letter-spacing: 1px">{{ project.projectName }}</span>
+                        <hr style="width: 95%;text-align: center;color: white;position: relative;margin: 10px auto;border: 2px white solid;border-radius: 3px;">
+                        <p style="color: white;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical">{{ project.projectDetail }}</p>
+                    </a>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/shadow.js' %}"></script>
+<script src="{% static 'js/ios-parallax.js' %}"></script>
+<script src="{% static 'js/bg-wall-animation.js' %}"></script>
+<script src="{% static 'js/sortable.js' %}"></script>
+{# 打字特效www.htmleaf.com/jQuery/Text-Link-Effects/201512012847.html#}
+<script src="{% static 'js/typeit.min.js' %}"></script>
+<script>
+    window.addEventListener('scroll', () => {
+        document.querySelector('#home').style.opacity = `${(window.innerHeight - 48) / (document.documentElement.scrollTop) / 10 - 0.1}`
+        document.querySelector('.navbar').style.background = `rgb(13,39,88,${(document.documentElement.scrollTop) / 550})`
+    })
+</script>
+<script>
+    $('.type-it').typeIt({
+        whatToType: ['努力搭建中...'],
+        typeSpeed: 200,
+        lifeLike: false,
+        showCursor: true
+    });
+</script>
+<script>
+    document.querySelector('.main-box').addEventListener('click', function (e) {
+        console.log(document.querySelector('.show'))
+        if (document.querySelector('.show') && !e.target.matches('.fa-weixin')) {
+            document.querySelector('.navbar-toggler').click()
+        }
+    })
+</script>
+<script>
+    document.querySelector('#sortable').sortablejs()
+</script>
+</html>
