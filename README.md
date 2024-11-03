@@ -14,7 +14,11 @@
 
 ### 主页面
 
-![](img/fontpage.png)
+![](img/fontpage01.png)
+
+![](img/fontpage02.png)
+
+
 
 ### 管理界面
 
